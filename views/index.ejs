@@ -1,0 +1,44 @@
+<!-- views/index.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Racers</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 50px;
+    }
+
+    .racers-container {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 1rem;
+    }
+
+    .racer-container {
+      text-align: center;
+    }
+
+    /* Add the following CSS for responsive image sizing */
+    .racer-image {
+      max-width: 100%; /* Ensure the image doesn't exceed its container width */
+      max-height: 200px; /* Set a maximum height for the images */
+    }
+  </style>
+</head>
+<body>
+  <h1>Racers</h1>
+  <div class="racers-container">
+    <% racers.forEach(racer => { %>
+      <div class="racer-container">
+        <img src="images/<%= racer.image %>" alt="<%= racer.name %>" class="racer-image">
+        <h2><%= racer.name %></h2>
+        <p><%= racer.wins %></p>
+      </div> 
+    <% }); %>
+  </div>
+</body>
+</html>
